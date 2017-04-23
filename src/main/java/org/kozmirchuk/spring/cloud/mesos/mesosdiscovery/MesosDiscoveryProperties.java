@@ -1,4 +1,4 @@
-package org.kozmirchuk.spring.cloud.mesos.discovery;
+package org.kozmirchuk.spring.cloud.mesos.mesosdiscovery;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -6,7 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import javax.validation.constraints.NotNull;
 
 
-@ConfigurationProperties("spring.cloud.mesos.discovery")
+@ConfigurationProperties("spring.cloud.mesos.mesosdiscovery")
 @Data
 public class MesosDiscoveryProperties {
 
@@ -17,7 +17,7 @@ public class MesosDiscoveryProperties {
     private String host = "localhost";
 
     @NotNull
-    private int port = 8080;
+    private int port = 5050;
 }
 
 

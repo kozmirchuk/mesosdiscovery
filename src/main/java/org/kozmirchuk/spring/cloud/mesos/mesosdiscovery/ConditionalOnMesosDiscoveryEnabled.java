@@ -1,4 +1,4 @@
-package org.kozmirchuk.spring.cloud.mesos.discovery;
+package org.kozmirchuk.spring.cloud.mesos.mesosdiscovery;
 
 import org.kozmirchuk.spring.cloud.mesos.client.MesosClient;
 import org.springframework.boot.autoconfigure.condition.AllNestedConditions;
@@ -25,7 +25,7 @@ public @interface ConditionalOnMesosDiscoveryEnabled {
             super(ConfigurationCondition.ConfigurationPhase.REGISTER_BEAN);
         }
 
-        @ConditionalOnProperty(value = "spring.cloud.mesos.discovery.enabled", matchIfMissing = true)
+        @ConditionalOnProperty(value = "spring.cloud.mesos.mesosdiscovery.enabled", matchIfMissing = true)
         static class FoundProperty {}
 
         @ConditionalOnClass(MesosClient.class)

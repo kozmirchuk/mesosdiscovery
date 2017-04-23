@@ -1,6 +1,8 @@
-package org.kozmirchuk.spring.cloud.mesos.discovery;
+package org.kozmirchuk.spring.cloud.mesos.mesosdiscovery;
 
 import feign.Feign;
+import feign.jackson.JacksonDecoder;
+import feign.jackson.JacksonEncoder;
 import org.kozmirchuk.spring.cloud.mesos.client.MesosClient;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -24,7 +26,12 @@ public class MesosDiscoveryAutoConfiguration {
     @Bean
     @ConditionalOnMissingBean
     public MesosClient mesosClient(MesosDiscoveryProperties properties) {
-        return Feign.builder().target(MesosClient.class, properties.getHost());
+        return Feign
+                .builder()
+                .encoder(new JacksonEncoder())
+                .decoder(new JacksonDecoder())
+                .target(MesosClient.class, properties.getHost());
+
     }
 
 }
