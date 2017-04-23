@@ -5,9 +5,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
-/**
- * Created by kozmirchuk on 4/23/17.
- */
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
 public final class Slave {

@@ -17,9 +17,6 @@ import lombok.Data;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by kozmirchuk on 4/23/17.
- */
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Data
