@@ -1,10 +1,7 @@
 package org.kozmirchuk.spring.cloud.mesos.client;
 
 
-import feign.Feign;
 import feign.RequestLine;
-import feign.jackson.JacksonDecoder;
-import feign.jackson.JacksonEncoder;
 
 import java.util.List;
 import java.util.Map;
@@ -31,21 +28,6 @@ public interface MesosClient {
             .map(rawTask -> new Task(rawTask.getName(), slaves.get(rawTask.getSlaveId()), rawTask.getPorts()))
             .collect(Collectors.toList());
 
-    }
-
-
-
-
-    public static void main(String[] args) {
-        MesosClient client = Feign
-            .builder()
-            .encoder(new JacksonEncoder())
-            .decoder(new JacksonDecoder())
-            .target(MesosClient.class, "http://dcos.darkside.cec.lab.emc.com/mesos");
-
-        List<Task> tasks = client.getTasks();
-
-        System.out.println(tasks);
     }
 
 }
